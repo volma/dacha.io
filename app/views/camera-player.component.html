@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="ipanel panel-default margin-10">
+                <h3>Камера</h3>
+                <img *ngIf="IsPlaying" src="{{url}}" />
+                <div [class.hidden]="IsPlaying">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" [(ngModel)]="Name" class="form-control" id="name" name="Name" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Andress</label>
+                        <input type="text" [(ngModel)]="Address" class="form-control" id="address" name="Address" required/>
+                        <label for="quality">Quality</label>
+                        <input type="text" [(ngModel)]="Quality" class="form-control" id="quality" name="Quality" />
+                    </div>
+                    <button type="submit" class="btn btn-primary" *ngIf="!IsPlaying" (click)="play()">Просмотр</button>
+                </div>
+                <button class="btn btn-danger" *ngIf="IsPlaying" (click)="stop()">Стоп</button>
+            </div>
+        </div>
+    </div>
